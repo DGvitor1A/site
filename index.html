@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para o Amor da Minha Vida 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffe6f0;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #ff99cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    nav {
+      background: #ffb3d1;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    .product h3 {
+      margin-top: 0;
+    }
+
+    .price {
+      color: #ff3399;
+      font-weight: bold;
+    }
+
+    button {
+      background: #ff66a3;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #total {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #cc0066;
+    }
+
+    #hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Galeria */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      border-radius: 10px;
+      width: 200px;
+      height: auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Botão de música */
+    #music-control {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="hearts"></div>
+
+  <header>
+    <h1>Para o Amor da Minha Vida 💕</h1>
+    <p>Um portfólio só para você, meu amor!</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#fotos">Nossas Fotos</a>
+  </nav>
+
+  <div class="container" id="home">
+    <h2>Bem-vinda, minha princesa! 💌</h2>
+    <p>Este site é só pra te lembrar o quanto eu te amo. Cada “produto” aqui é algo que quero viver com você, sempre. 💑</p>
+  </div>
+
+  <div class="container" id="produtos">
+    <h2>Nossos Produtos de Amor 💝</h2>
+
+    <div class="product">
+      <h3>Abracinho Apertado 🤗</h3>
+      <p>Um abraço daqueles de não querer soltar nunca.</p>
+      <p class="price">Custa: 5 beijos</p>
+      <button onclick="addToCart(5)">Quero esse!</button>
+    </div>
+
+    <div class="product">
+      <h3>Carinho no Cabelo 💆‍♀️</h3>
+      <p>Carinho enquanto a gente assiste série ou conversa baixinho.</p>
+      <p class="price">Custa: 3 beijos</p>
+      <button onclick="addToCart(3)">Quero esse!</button>
+    </div>
+
+    <div class="product">
+      <h3>Ver um Filme Juntinhos 🎬</h3>
+      <p>Com direito a pipoca, cobertinha e chamego.</p>
+      <p class="price">Custa: 7 beijos</p>
+      <button onclick="addToCart(7)">Quero esse!</button>
+    </div>
+
+    <div class="product">
+      <h3>Sair Juntos 👫</h3>
+      <p>Um date especial só nosso.</p>
+      <p class="price">Custa: 10 beijos</p>
+      <button onclick="addToCart(10)">Quero esse!</button>
+    </div>
+
+    <div class="product">
+      <h3>Surpresa Romântica 🎁</h3>
+      <p>Preparada com muito amor (segredo!).</p>
+      <p class="price">Custa: 15 beijos</p>
+      <button onclick="addToCart(15)">Quero esse!</button>
+    </div>
+
+    <div id="total">Total: 0 beijos 💋</div>
+  </div>
+
+  <div class="container" id="fotos">
+    <h2>Nossas Memórias 📸</h2>
+    <p>Aqui vão algumas lembranças lindas... ou você pode adicionar as suas!</p>
+    <div class="Àrea de trabalho">
+      <img src="foto 1.jpeg" alt="Foto 1">
+      <img src="foto 2.jpeg" alt="Foto 2">
+      <img src="foto 3.jpeg" alt="Foto 3">
+      <!-- Troque os links pelas suas fotos depois -->
+    </div>
+  </div>
+
+  <button id="music-control">▶️</button>
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    let totalBeijos = 0;
+
+    function addToCart(beijos) {
+      totalBeijos += beijos;
+      document.getElementById("total").innerText = `Total: ${totalBeijos} beijos 💋`;
+    }
+
+    // Corações flutuando
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      document.getElementById('hearts').appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+
+    // Música
+    const music = document.getElementById("bg-music");
+    const control = document.getElementById("music-control");
+    let playing = false;
+
+    control.addEventListener("click", () => {
+      if (playing) {
+        music.pause();
+        control.textContent = "▶️";
+      } else {
+        music.play();
+        control.textContent = "⏸️";
+      }
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>
